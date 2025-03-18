@@ -1,0 +1,9 @@
+n=size(A,1);
+A1=A(1:n/2,1:n/2)
+A2=A(1:n/2,n/2+1:n)
+A3=A(n/2+1:n,1:n/2)
+A4=A(n/2+1:n,n/2+1:n)
+X1=inv(A1-A2*inv(A4)*A3)
+X2=-inv(A4)*A3*X1
+X4=inv(A4-A3*inv(A1)*A2)
+X3=-inv(A1)*A3*X4;
