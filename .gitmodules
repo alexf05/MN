@@ -1,0 +1,3 @@
+[submodule "teme"]
+	path = teme
+	url = https://github.com/alexf05/MN-teme
