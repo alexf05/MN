@@ -1,6 +1,20 @@
 [m,n]=size(A);
 maxP=min(m,n);
-Pr=eye(n);
+Q=eye(n);
 for p = 1:maxP
-  [_,idx]=max(abs(A(p:m, p:n-1)));
-  (
+  [~,idx]=max(abs(A(p:m, p:n)), [], 'linear');
+  [row, col]=ind2sub([m-p+1, n-p+1], idx);
+  row = row + p -1;
+  col = col + p  - 1;
+  P= eye(n);
+  P(:, [p,col]) = P(:, [col, p]);
+  Q = Q *P;
+  A = A*P;
+  P= eye(m);
+  P([p,row],:)= P([row, p], :);
+  A=P*A;
+  T=eye(m);
+  u=A(p+1:m,p)/A(p,p);
+  T(p+1:m,p)=-u;
+  A=T*A;
+endfor
