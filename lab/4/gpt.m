@@ -2,7 +2,8 @@
 maxP=min(m,n);
 Q=eye(n);
 for p = 1:maxP
-  [~,idx]=max(abs(A(p:m, p:n)));
+  temp = abs(A(p:m, p:n));
+  [~, idx] = max(temp(:));
   [row, col]=ind2sub([m-p+1, n-p+1], idx);
   row = row + p -1;
   col = col + p  - 1;
