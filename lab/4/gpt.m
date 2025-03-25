@@ -2,7 +2,7 @@
 maxP=min(m,n);
 Q=eye(n);
 for p = 1:maxP
-  [~,idx]=max(abs(A(p:m, p:n)), [], 'linear');
+  [~,idx]=max(abs(A(p:m, p:n)));
   [row, col]=ind2sub([m-p+1, n-p+1], idx);
   row = row + p -1;
   col = col + p  - 1;
