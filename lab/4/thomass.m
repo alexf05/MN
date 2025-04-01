@@ -7,5 +7,5 @@ for i = 2:n
 endfor
 x[n]=d[n]/b[n];
 for i = n - 1 : -1 :1
-  x[i]=(d[i]-c[i]*x[i+])/b[i];
+  x[i]=(d[i]-c[i]*x[i+1])/b[i];
 endfor
